@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Account Details</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+    <body style="background: rgb(247, 228, 194);">
+        <div class="header">
+            STATIC BANKING SYSTEM
+        </div>
+        <nav class="navigation">
+            <a href="{% url 'home_view' %}" class="navigation-item">Home</a>
+        </nav>
+        <div class="title">
+            User Account Details
+        </div>
+        <div class="user-details">
+            <div class="user-details-each"><strong>Name:</strong>  {{ user.username }} </div>
+            <div class="user-details-each"><strong>Email:</strong>  {{ user.email }} </div>
+            <div class="user-details-each"><strong>Balance:</strong>  ${{ acc.balance }}</div>
+        </div>
+        <form action="{% url 'transfer_view' %}">
+            <button type="submit" class="btn">Transfer</button>
+        </form>
+    </body>
+</html>

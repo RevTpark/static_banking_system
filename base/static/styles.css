@@ -1,0 +1,143 @@
+.header{
+    width: inherit;
+    height: 70px;
+    background: rgb(105, 105, 105);
+    font-size: 40px;
+    text-align: center;
+    color: white;
+    padding-top: 15px;
+}
+
+.title{
+    text-align: center;
+    background: darkgrey;
+    margin-top: 0px;
+    height: 60px;
+    vertical-align: middle;
+    color: white;
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.acc-titles{
+    height: 50px;
+    width: 400px;
+    background: rgb(32, 32, 32);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 430px;
+}
+
+.acc-titles:hover{
+    background: rgb(82, 82, 82);
+}
+
+.acc-text{
+    color: wheat;   
+}
+
+.navigation{
+    height: 40px;
+    width: inherit;
+    background: rgb(117, 117, 117);
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+}
+
+.navigation-item{
+    color: rgb(95, 95, 95);
+    display: flex;
+    margin-left: 10px;
+    font-size: 25px;
+    width: 100px;
+    border-radius: 50px;
+    background: beige;
+    justify-content: center;
+}
+
+.user-details{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 30px;
+    width: 500px;
+    height: 200px;
+    background: rgb(41, 53, 41);
+    margin-left: 375px;
+    padding-top: 10px;
+}
+
+.user-details-each{
+    display: flex;
+    background: white;
+    width: 250px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 118px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.btn{
+    margin-left: 538px;
+    margin-top: 30px;
+    height: 50px;
+    width: 150px;
+    font-size: 25px;
+}
+
+.message{
+    display: flex;
+    width: inherit;
+    height: 30px;
+    border-radius: 25px;
+    margin-top: 15px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+}
+
+.success{
+    background: green;
+    border: 4px solid darkgreen;
+}
+
+.error{
+    background: red;
+    border: 4px solid darkred;
+}
+
+.transfer-box{
+    height: 200px;
+    width: 500px;
+    background: yellowgreen;
+    margin-top: 20px;
+    padding-top: 25px;
+    font-size: 28px;
+    margin-left: 363px;
+}
+
+.box-each{
+    display: flex;
+    align-items: center;
+    background: white;
+    margin-top: 15px;
+    width: 300px;
+    margin-left: 95px;
+    border-radius: 5px;
+    border: 3px solid darkgreen;
+}
+
+.btn1{
+    margin-left: 130px;
+    margin-top: 70px;
+    height: 50px;
+    width: 250px;
+    font-size: 25px
+}

@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transfer Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+    <body style="background: rgb(247, 228, 194);">
+        <div class="header">
+        STATIC BANKING SYSTEM
+        </div>
+        <nav class="navigation">
+            <a href="{% url 'home_view' %}" class="navigation-item">Home</a>
+        </nav>
+        <div class="title">
+            WELCOME TO TRANSFER ROOM
+        </div>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">
+                {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <form action="" method="POST">
+            <div class="transfer-box">
+            {% csrf_token %}
+            <div class="box-each">
+                From:&nbsp;&nbsp;&nbsp;&nbsp;
+                <select name="sendFrom">
+                    {% for acc in accounts %}
+                    <option value="{{ acc.user }}">{{ acc.user }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="box-each">
+                To:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <select name="sendTo">
+                    {% for acc in accounts %}
+                    <option value="{{ acc.user }}">{{ acc.user }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="box-each">
+                Amount: $ <input type="number" name="amount" min="0" value="0" required>
+            </div>
+            <button type="submit" class="btn1">Make Transaction</button>
+            </div>
+        </form>
+    </body>
+</html>
