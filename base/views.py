@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from user.models import Account, User
 from django.contrib import messages
-
+from .models import LogTracker
 
 def home_view(request):
     acc = Account.objects.all()
@@ -31,14 +31,24 @@ def transfer_view(request):
             messages.error(request, "Transfer between same account is not allowed!")
         elif sendFrom.balance >= amount:
             sendFrom.balance -= amount
-            sendTo.balance += amount
             sendFrom.save()
+            sendTo.balance += amount
             sendTo.save()
+            LogTracker.objects.create(isFrom=sendFrom, isTo=sendTo, ofAmount=amount, isSuccess=True)
             messages.success(request, f"Successfully transferred $ {amount} from {sendFrom} to {sendTo}!")
         else:
+            LogTracker.objects.create(isFrom=sendFrom, isTo=sendTo, ofAmount=amount, isSuccess=False)
             messages.error(request, f"Not sufficient funds in {sendFrom} to make the transactions...")
 
     context = {
         "accounts": Account.objects.all()
     }
     return render(request, "transfer.html", context)
+
+
+def log_tracker(request):
+    logs = LogTracker.objects.all().order_by("-atTime")
+    context = {
+        "user_logs": logs
+    }
+    return render(request, "logs.html", context)

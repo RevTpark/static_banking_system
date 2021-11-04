@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transfer Logs</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+    <body style="background: rgb(247, 228, 194);">
+        <div class="header">
+        STATIC BANKING SYSTEM
+        </div>
+        <nav class="navigation">
+            <a href="{% url 'home_view' %}" class="navigation-item">Home</a>
+            <a href="{% url 'transfer_view' %}" class="navigation-item">Transfer</a>
+        </nav>
+        <div class="title">
+            RECORDS OF ALL TRANSFERS
+        </div>
+        <table>
+            <tr>
+                <th>Sender</th>
+                <th>Receiver</th>
+                <th>Amount($)</th>
+                <th>Date/Time</th>
+                <th>Status</th>
+            </tr>
+            {% for log in user_logs %}
+                <tr>
+                    <td>{{ log.isFrom }}</td>
+                    <td>{{ log.isTo }}</td>
+                    <td>{{ log.ofAmount }}</td>
+                    <td>{{ log.atTime }}</td>
+                    <td>{{ log.isSuccess }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
